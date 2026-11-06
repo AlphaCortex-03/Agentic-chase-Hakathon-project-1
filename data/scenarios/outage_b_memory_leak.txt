@@ -1,0 +1,14 @@
+[2024-11-07T09:00:00Z] [INFO]     [user-profile-service]  Service started. JVM heap: 512MB allocated. Max heap: 2048MB.
+[2024-11-07T09:15:00Z] [WARN]     [user-profile-service]  JVM heap usage at 65% (1331MB/2048MB). GC pressure increasing.
+[2024-11-07T09:30:00Z] [WARN]     [user-profile-service]  JVM heap usage at 82% (1679MB/2048MB). Full GC triggered, pause: 4200ms.
+[2024-11-07T09:45:00Z] [ERROR]    [user-profile-service]  JVM heap usage at 97% (1986MB/2048MB). Consecutive Full GC cycles. Application response time: 12000ms.
+[2024-11-07T09:46:00Z] [CRITICAL] [user-profile-service]  java.lang.OutOfMemoryError: Java heap space. Heap dump written to /tmp/heap-dump-20241107.hprof.
+[2024-11-07T09:46:05Z] [CRITICAL] [kubernetes-node-01]    OOMKiller invoked. Process user-profile-service (PID 18420) killed. Reason: memory.limit_in_bytes exceeded.
+[2024-11-07T09:46:10Z] [ERROR]    [kubernetes-node-01]    Pod user-profile-service-6f4d9 terminated with exit code 137 (SIGKILL). CrashLoopBackOff initiated.
+[2024-11-07T09:46:15Z] [ERROR]    [recommendation-engine] HTTP 503 from user-profile-service. Cannot load user preferences. Fallback to generic recommendations.
+[2024-11-07T09:46:20Z] [ERROR]    [recommendation-engine] HTTP 503 from user-profile-service. Fallback cache MISS. Returning empty recommendations.
+[2024-11-07T09:46:30Z] [ERROR]    [homepage-service]      Personalization disabled. user-profile-service unavailable. Showing generic homepage to all users.
+[2024-11-07T09:47:00Z] [WARN]     [kubernetes-node-01]    Pod user-profile-service-6f4d9 restarting (attempt 1/5). CrashLoopBackOff backoff: 10s.
+[2024-11-07T09:47:15Z] [CRITICAL] [user-profile-service]  java.lang.OutOfMemoryError: Java heap space. Service crashing again on startup.
+[2024-11-07T09:47:20Z] [ERROR]    [kubernetes-node-01]    Pod user-profile-service-6f4d9 restarting (attempt 2/5). CrashLoopBackOff backoff: 20s.
+[2024-11-07T09:50:00Z] [ALERT]    [monitoring-agent]      ALERT: user-profile-service in CrashLoopBackOff state. Personalization features OFFLINE. Ticket raised: INC-7291.

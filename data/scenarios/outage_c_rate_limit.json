@@ -1,0 +1,15 @@
+[
+  {"timestamp": "2024-11-07T18:00:00Z", "service": "api-gateway",   "level": "INFO",  "message": "Normal traffic: 1,200 req/min from 48 unique IP subnets."},
+  {"timestamp": "2024-11-07T18:05:00Z", "service": "api-gateway",   "level": "WARN",  "message": "Traffic spike detected: 8,400 req/min. 72% originating from subnet 203.0.113.0/24."},
+  {"timestamp": "2024-11-07T18:05:30Z", "service": "api-gateway",   "level": "WARN",  "message": "Subnet 203.0.113.0/24 generating 6,100 req/min. Rate limit threshold approaching."},
+  {"timestamp": "2024-11-07T18:06:00Z", "service": "rate-limiter",  "level": "ERROR", "message": "Rate limit EXCEEDED for subnet 203.0.113.0/24. Current: 6800 req/min. Limit: 5000 req/min. Returning HTTP 429."},
+  {"timestamp": "2024-11-07T18:06:05Z", "service": "api-gateway",   "level": "ERROR", "message": "HTTP 429 Too Many Requests returned. Source: 203.0.113.42. Endpoint: /api/v1/search."},
+  {"timestamp": "2024-11-07T18:06:05Z", "service": "api-gateway",   "level": "ERROR", "message": "HTTP 429 Too Many Requests returned. Source: 203.0.113.67. Endpoint: /api/v1/search."},
+  {"timestamp": "2024-11-07T18:06:10Z", "service": "api-gateway",   "level": "ERROR", "message": "HTTP 429 Too Many Requests returned. Source: 203.0.113.91. Endpoint: /api/v1/product."},
+  {"timestamp": "2024-11-07T18:06:15Z", "service": "search-service","level": "ERROR", "message": "Request queue depth: 15,000. Worker threads saturated. P99 latency: 18,000ms. Legitimate requests timing out."},
+  {"timestamp": "2024-11-07T18:06:20Z", "service": "search-service","level": "CRITICAL", "message": "Worker pool EXHAUSTED. Rejecting all incoming requests. Legitimate users experiencing 503 Service Unavailable."},
+  {"timestamp": "2024-11-07T18:06:30Z", "service": "product-service","level": "ERROR", "message": "Downstream dependency search-service unavailable. Product discovery broken for all users."},
+  {"timestamp": "2024-11-07T18:07:00Z", "service": "waf-service",   "level": "CRITICAL", "message": "WAF Rule 7001 triggered: Volumetric attack pattern from subnet 203.0.113.0/24. Auto-blocking initiated."},
+  {"timestamp": "2024-11-07T18:07:05Z", "service": "waf-service",   "level": "INFO",  "message": "Subnet 203.0.113.0/24 added to blocklist. All traffic from this subnet dropped at edge."},
+  {"timestamp": "2024-11-07T18:07:30Z", "service": "monitoring-agent","level": "ALERT","message": "CRITICAL ALERT: Suspected DDoS attack. 203.0.113.0/24 blocked. search-service and product-service degraded. INC-8841 raised."}
+]

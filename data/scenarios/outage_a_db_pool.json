@@ -1,0 +1,16 @@
+[
+  {"timestamp": "2024-11-07T14:00:00Z", "service": "auth-db", "level": "WARN",    "message": "Connection pool utilization at 78%. Current: 78/100."},
+  {"timestamp": "2024-11-07T14:00:30Z", "service": "auth-db", "level": "WARN",    "message": "Connection pool utilization at 91%. Current: 91/100."},
+  {"timestamp": "2024-11-07T14:01:00Z", "service": "auth-db", "level": "ERROR",   "message": "Connection pool EXHAUSTED. All 100/100 slots occupied. Waiting threads: 42."},
+  {"timestamp": "2024-11-07T14:01:05Z", "service": "auth-db", "level": "ERROR",   "message": "FATAL: too many connections for role 'app_user'. Max allowed: 100."},
+  {"timestamp": "2024-11-07T14:01:10Z", "service": "auth-service", "level": "ERROR", "message": "Cannot acquire DB connection after 5000ms timeout. Rejecting auth request for user_id=48291."},
+  {"timestamp": "2024-11-07T14:01:12Z", "service": "auth-service", "level": "ERROR", "message": "Cannot acquire DB connection after 5000ms timeout. Rejecting auth request for user_id=57104."},
+  {"timestamp": "2024-11-07T14:01:15Z", "service": "auth-service", "level": "ERROR", "message": "Cannot acquire DB connection after 5000ms timeout. Rejecting auth request for user_id=61320."},
+  {"timestamp": "2024-11-07T14:01:20Z", "service": "payment-gateway", "level": "ERROR", "message": "HTTP 503 from auth-service. User session validation failed. Transaction ID: TXN-9921 aborted."},
+  {"timestamp": "2024-11-07T14:01:22Z", "service": "payment-gateway", "level": "ERROR", "message": "HTTP 503 from auth-service. User session validation failed. Transaction ID: TXN-9922 aborted."},
+  {"timestamp": "2024-11-07T14:01:25Z", "service": "payment-gateway", "level": "CRITICAL", "message": "Circuit breaker OPEN. Auth-service failure rate exceeded 70% threshold. All payment processing HALTED."},
+  {"timestamp": "2024-11-07T14:01:30Z", "service": "api-gateway",    "level": "ERROR", "message": "HTTP 504 Gateway Timeout returned to client. Upstream: payment-gateway not responding."},
+  {"timestamp": "2024-11-07T14:01:35Z", "service": "api-gateway",    "level": "ERROR", "message": "HTTP 504 Gateway Timeout returned to client. Upstream: payment-gateway not responding."},
+  {"timestamp": "2024-11-07T14:01:40Z", "service": "frontend-web",   "level": "CRITICAL", "message": "Checkout page returning HTTP 503 to end users. Estimated affected users: ~15,000."},
+  {"timestamp": "2024-11-07T14:02:00Z", "service": "monitoring-agent", "level": "ALERT", "message": "CRITICAL ALERT: Payment conversion rate dropped to 0%. SLA BREACH IMMINENT."}
+]

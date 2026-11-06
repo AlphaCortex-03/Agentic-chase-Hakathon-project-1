@@ -1,0 +1,14 @@
+timestamp,service,level,message
+2024-11-07T18:00:00Z,api-gateway,INFO,Normal traffic: 1200 req/min from 48 unique IP subnets.
+2024-11-07T18:05:00Z,api-gateway,WARN,Traffic spike detected: 8400 req/min. 72% originating from subnet 203.0.113.0/24.
+2024-11-07T18:05:30Z,api-gateway,WARN,Subnet 203.0.113.0/24 generating 6100 req/min. Rate limit threshold approaching.
+2024-11-07T18:06:00Z,rate-limiter,ERROR,Rate limit EXCEEDED for subnet 203.0.113.0/24. Current: 6800 req/min. Limit: 5000 req/min. Returning HTTP 429.
+2024-11-07T18:06:05Z,api-gateway,ERROR,HTTP 429 Too Many Requests returned. Source: 203.0.113.42. Endpoint: /api/v1/search.
+2024-11-07T18:06:05Z,api-gateway,ERROR,HTTP 429 Too Many Requests returned. Source: 203.0.113.67. Endpoint: /api/v1/search.
+2024-11-07T18:06:10Z,api-gateway,ERROR,HTTP 429 Too Many Requests returned. Source: 203.0.113.91. Endpoint: /api/v1/product.
+2024-11-07T18:06:15Z,search-service,ERROR,Request queue depth: 15000. Worker threads saturated. P99 latency: 18000ms. Legitimate requests timing out.
+2024-11-07T18:06:20Z,search-service,CRITICAL,Worker pool EXHAUSTED. Rejecting all incoming requests. Legitimate users experiencing 503 Service Unavailable.
+2024-11-07T18:06:30Z,product-service,ERROR,Downstream dependency search-service unavailable. Product discovery broken for all users.
+2024-11-07T18:07:00Z,waf-service,CRITICAL,WAF Rule 7001 triggered: Volumetric attack pattern from subnet 203.0.113.0/24. Auto-blocking initiated.
+2024-11-07T18:07:05Z,waf-service,INFO,Subnet 203.0.113.0/24 added to blocklist. All traffic from this subnet dropped at edge.
+2024-11-07T18:07:30Z,monitoring-agent,ALERT,CRITICAL ALERT: Suspected DDoS attack. 203.0.113.0/24 blocked. search-service and product-service degraded. INC-8841 raised.
