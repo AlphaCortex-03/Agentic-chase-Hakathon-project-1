@@ -202,9 +202,9 @@ Incoming Alert / Log File
 
 ---
 
-## Team
+## Team DOREMAN,
 
-**Hackathon**: Agentic Chase — SCCS AOT  
+**Hackathon**: Agentic Chase — SCCSBS AOT  
 **Problem Statement**: PS 01 — IncidentX: Autonomous IT Incident Response Agent  
 **Event Date**: 7th November
 
